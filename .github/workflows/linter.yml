@@ -1,0 +1,28 @@
+# .github/workflows/linter.yml
+
+name: Lint Code Base
+
+# This action will run on every push to any branch
+on:
+  push:
+
+jobs:
+  run-lint:
+    # The job will run on the latest version of Ubuntu
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        # This step checks out a copy of your repository onto the runner
+        uses: actions/checkout@v4
+
+      - name: Run Super-Linter
+        # This step runs the pre-built Super-Linter action
+        uses: super-linter/super-linter@v6
+        env:
+          # Tell the linter to validate Python code
+          VALIDATE_PYTHON: true
+          # Set your default branch name
+          DEFAULT_BRANCH: master
+          # This token is required for the linter to work
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
