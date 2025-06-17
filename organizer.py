@@ -1,4 +1,7 @@
-# organizer.py
+"""
+A script that watches a folder and automatically organizes files into subdirectories
+based on their file extension.
+"""
 
 import os
 import shutil
