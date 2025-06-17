@@ -2,8 +2,8 @@
 
 import os
 import shutil
-import time
 import sys
+import time
 
 # --- CONFIGURATION ---
 # Check if a folder path was provided when running the script
@@ -32,7 +32,7 @@ FILE_TYPES = {
     ".mp4": "Videos",
     ".mov": "Videos",
     ".js": "Scripts",
-    ".py": "Scripts"
+    ".py": "Scripts",
 }
 
 # --- SCRIPT LOGIC ---
@@ -55,7 +55,7 @@ try:
                     if file_ext in FILE_TYPES:
                         # Get the destination folder name from the mapping
                         dest_folder_name = FILE_TYPES[file_ext]
-                        
+
                         # Construct the full path of the destination folder
                         dest_folder_path = os.path.join(TARGET_FOLDER, dest_folder_name)
 
@@ -64,10 +64,10 @@ try:
 
                         # Construct the full path for the destination file
                         dest_path = os.path.join(dest_folder_path, entry.name)
-                        
+
                         # Move the file from the source to the destination
                         shutil.move(entry.path, dest_path)
-                        
+
                         print(f"Moved: {entry.name} -> {dest_folder_name}/")
 
         # Wait for 10 seconds before checking the folder again to save CPU
